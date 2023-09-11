@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to completely hide the dock panel's caption?
 ' 
 ' By setting the DockManager.DockingOptions.ShowCaptionOnMouseHover property it's
@@ -9,46 +9,43 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E1940
-
-
-Imports Microsoft.VisualBasic
 Imports System
-Imports System.Collections.Generic
 Imports System.ComponentModel
-Imports System.Data
 Imports System.Drawing
-Imports System.Text
 Imports System.Windows.Forms
 Imports DevExpress.XtraBars.Docking
 Imports DevExpress.XtraBars.Docking.Helpers
 
 Namespace WindowsApplication81
-	Partial Public Class Form1
-		Inherits Form
-		Public Sub New()
-			InitializeComponent()
-		End Sub
-		'CustomDockPanel panel;
-		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-			AddHandler customDockManager1.RegisterDockPanel, AddressOf customDockManager1_RegisterDockPanel
-			'CustomDockManager manager = new CustomDockManager(this);
-			'panel = manager.AddPanel(DockingStyle.Left) as CustomDockPanel;
-			'panel.Text = "dockPanel1";
-			'panel = manager.AddPanel(DockingStyle.Left) as CustomDockPanel;
-			'panel.Text = "dockPanel2";
-			'panel.ShowCaption = false;
-		End Sub
-		Private parentPanel As CustomDockPanel = Nothing
-		Private Sub customDockManager1_RegisterDockPanel(ByVal sender As Object, ByVal e As DockPanelEventArgs)
-			'throw new NotImplementedException();
-			'if (e.Panel==pane)
-			If e.Panel.Text.Contains("container") Then
-				parentPanel = TryCast(e.Panel, CustomDockPanel)
-			End If
-		End Sub
 
-		Private Sub checkEdit1_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles checkEdit1.CheckedChanged
-			TryCast(panelContainer1, CustomDockPanel).ShowCaption = checkEdit1.Checked
-		End Sub
-	End Class
+    Public Partial Class Form1
+        Inherits Form
+
+        Public Sub New()
+            InitializeComponent()
+        End Sub
+
+        'CustomDockPanel panel;
+        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs)
+            AddHandler customDockManager1.RegisterDockPanel, AddressOf customDockManager1_RegisterDockPanel
+        'CustomDockManager manager = new CustomDockManager(this);
+        'panel = manager.AddPanel(DockingStyle.Left) as CustomDockPanel;
+        'panel.Text = "dockPanel1";
+        'panel = manager.AddPanel(DockingStyle.Left) as CustomDockPanel;
+        'panel.Text = "dockPanel2";
+        'panel.ShowCaption = false;
+        End Sub
+
+        Private parentPanel As CustomDockPanel = Nothing
+
+        Private Sub customDockManager1_RegisterDockPanel(ByVal sender As Object, ByVal e As DockPanelEventArgs)
+            'throw new NotImplementedException();
+            'if (e.Panel==pane)
+            If e.Panel.Text.Contains("container") Then parentPanel = TryCast(e.Panel, CustomDockPanel)
+        End Sub
+
+        Private Sub checkEdit1_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
+            TryCast(panelContainer1, CustomDockPanel).ShowCaption = checkEdit1.Checked
+        End Sub
+    End Class
 End Namespace

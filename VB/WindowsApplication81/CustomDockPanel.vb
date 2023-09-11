@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to completely hide the dock panel's caption?
 ' 
 ' By setting the DockManager.DockingOptions.ShowCaptionOnMouseHover property it's
@@ -9,53 +9,49 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E1940
-
-
-Imports Microsoft.VisualBasic
-Imports System
-Imports System.Collections.Generic
 Imports System.ComponentModel
-Imports System.Data
 Imports System.Drawing
-Imports System.Text
-Imports System.Windows.Forms
 Imports DevExpress.XtraBars.Docking
 Imports DevExpress.XtraBars.Docking.Helpers
 
 Namespace WindowsApplication81
-	Public Class CustomDockPanel
-		Inherits DockPanel
-		Public Sub New()
-			Me.New(False, DockingStyle.Float, Nothing)
-		End Sub
-		Public Sub New(ByVal createControlContainer As Boolean, ByVal dock As DockingStyle, ByVal dockManager As DockManager)
-			MyBase.New(createControlContainer, dock, dockManager)
-			DockLayout = New CustomDockLayout(dock, Me)
-		End Sub
 
-		'// Fields...
+    Public Class CustomDockPanel
+        Inherits DockPanel
 
-		Private _ShowCaption As Boolean = True
+        Public Sub New()
+            Me.New(False, DockingStyle.Float, Nothing)
+        End Sub
 
-		Public Property ShowCaption() As Boolean
-			Get
-				Return _ShowCaption
-			End Get
-			Set(ByVal value As Boolean)
-				If _ShowCaption <> value Then
-					_ShowCaption = value
-					DockLayout.LayoutChanged()
-				End If
-			End Set
-		End Property
+        Public Sub New(ByVal createControlContainer As Boolean, ByVal dock As DockingStyle, ByVal dockManager As DockManager)
+            MyBase.New(createControlContainer, dock, dockManager)
+            DockLayout = New CustomDockLayout(dock, Me)
+        End Sub
 
-		Private Property DockLayout() As CustomDockLayout
-			Get
-				Return TryCast(MyBase.DockLayout, CustomDockLayout)
-			End Get
-			Set(ByVal value As CustomDockLayout)
-				MyBase.DockLayout = value
-			End Set
-		End Property
-	End Class
+        ''' Fields...
+        Private _ShowCaption As Boolean = True
+
+        Public Property ShowCaption As Boolean
+            Get
+                Return _ShowCaption
+            End Get
+
+            Set(ByVal value As Boolean)
+                If _ShowCaption <> value Then
+                    _ShowCaption = value
+                    DockLayout.LayoutChanged()
+                End If
+            End Set
+        End Property
+
+        Private Property DockLayout As CustomDockLayout
+            Get
+                Return TryCast(MyBase.DockLayout, CustomDockLayout)
+            End Get
+
+            Set(ByVal value As CustomDockLayout)
+                MyBase.DockLayout = value
+            End Set
+        End Property
+    End Class
 End Namespace
