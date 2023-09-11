@@ -4,9 +4,9 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# WinForms Docking - Hide the dock panel's caption
+# WinForms Docking - Hide the dock panel caption
 
-The [DockManager.DockingOptions.ShowCaptionOnMouseHover](https://docs.devexpress.com/WindowsForms/DevExpress.XtraBars.Docking.DockingOptions.ShowCaptionOnMouseHover) property specifies whether to display a dock panel's caption or to display the caption when the mouse pointer hovers over the panel's top. This example demonstrates how to completely hide the dock panel's caption.
+The [DockManager.DockingOptions.ShowCaptionOnMouseHover](https://docs.devexpress.com/WindowsForms/DevExpress.XtraBars.Docking.DockingOptions.ShowCaptionOnMouseHover) property specifies whether to display a dock panel's caption or to display the caption when the mouse pointer hovers over the panel's top. This example demonstrates how to completely hide the dock panel caption.
 
 
 ## Files to Review
